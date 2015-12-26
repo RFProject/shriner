@@ -1,1 +1,40 @@
 <h1>これはテストだよ</h1>
+
+<div id="map"></div>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #map {
+    height: 100%;
+  }
+</style>
+<script>
+  function initMap() {
+    var locations = {
+      jingu: {lat: 35.676694, lng: 139.699347},
+      fushimi: {lat: 34.967448, lng: 135.772672}
+    };
+    var map = new google.maps.Map($('#map')[0], {
+      zoom: 8,
+      center: locations["jingu"]
+    });
+    var marker = new google.maps.Marker({
+      position: locations["jingu"],
+      map: map,
+      title: 'Hello World!',
+      icon: "assets/1.png"
+    });
+    var marker2 = new google.maps.Marker({
+      position: locations["fushimi"],
+      map: map,
+      title: 'Hello World!',
+      icon: "assets/1.png"
+    });
+  }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2COQXpmyEeBv6w4IHG59EaQoC3BxFUDo&signed_in=true&callback=initMap"></script>
