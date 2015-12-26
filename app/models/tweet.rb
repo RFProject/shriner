@@ -4,8 +4,8 @@ class Tweet < ActiveRecord::Base
 
   def self.get_tweet
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key = "v869mE43fG8qKPGOVHc9HWNWN"
-      config.consumer_secret = "bHv4V7ldagXMXPxDAwTq4rDpgVS9vcodJNha6Rn2t1WXzdfWCo"
+      config.consumer_key = "nR4EpNxsn5wx0i8DHAhRuMvpF"
+      config.consumer_secret = "WaU2kLjULnU7v2LnLzBAPovaUbQxMd303v5bIhukniPGNfyetJ"
     end
 
     shrines = {'明治神宮' => '35.676703,139.699300,1km',
@@ -35,4 +35,5 @@ class Tweet < ActiveRecord::Base
       end
     end
   end
+  
 end
