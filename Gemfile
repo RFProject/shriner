@@ -61,3 +61,4 @@ gem 'sprockets-rails', '2.3.3'
 
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'figaro'
