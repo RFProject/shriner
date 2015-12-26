@@ -16,17 +16,20 @@
       zoom: 8,
       center: locations["jingu"]
     });
-    var marker = new google.maps.Marker({
+    var icon = new google.maps.MarkerImage('assets/icon/1.png');
+    icon.scaledSize = new google.maps.Size(64, 64);
+
+    new google.maps.Marker({
       position: locations["jingu"],
       map: map,
       title: 'Hello World!',
-      icon: "assets/icon/1.png"
+      icon: icon
     });
-    var marker2 = new google.maps.Marker({
+    new google.maps.Marker({
       position: locations["fushimi"],
       map: map,
       title: 'Hello World!',
-      icon: "assets/icon/1.png"
+      icon: icon
     });
   }
 </script>
