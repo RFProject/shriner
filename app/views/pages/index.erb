@@ -1,17 +1,22 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    メッセージ一覧
-  </div>
+<div class="panel-default content">
 
-  <div class="panel-body">
-    <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-        <%= message.body %>
-        (<%= link_to "edit" , edit_message_path(message) %>
-         <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>)
-      <br>
-    <% end %>
-  </div>
+	<div class="container datetimepicker">
+	    <div class="col-sm-6" style="height:130px;">
+	        <div class="form-group">
+	        	<p class="message">Input "Date&Time" ?</p>
+	            <div class='input-group date' id='datetimepicker8'>
+	                <input type='text' class="form-control" />
+	                <span class="input-group-addon">
+	                    <span class="fa fa-calendar">
+	                    </span>
+	                </span>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+
+	<div class="panel-body">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.8646304805607!2d139.68374495080081!3d35.704948686181076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f2c958416bf7%3A0x595dbd0a77d70e37!2z44CSMTY0LTAwMDMg5p2x5Lqs6YO95Lit6YeO5Yy65p2x5Lit6YeO77yR5LiB55uu77yU77yVIOaXpeODjuWHuuODk-ODqw!5e0!3m2!1sja!2sjp!4v1447292067381" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>			
+	</div>
 </div>
-
-<%= render 'form' %>
