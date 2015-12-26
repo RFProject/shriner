@@ -32,6 +32,12 @@
       icon: icon
     });
   }
+  $.get("stats/timeline"
+      , {year: '2015'}
+      , function (data) {
+        console.info(data);
+      }
+  )
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2COQXpmyEeBv6w4IHG59EaQoC3BxFUDo&signed_in=true&callback=initMap"></script>
