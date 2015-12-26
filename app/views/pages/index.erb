@@ -5,7 +5,7 @@
       <div class="form-group">
         <p class="message">Input "Date&Time" ?</p>
         <div class='input-group date' id='datetimepicker8'>
-          <input type='text' class="form-control" />
+          <input type='text' class="form-control"/>
 	                <span class="input-group-addon">
 	                    <span class="fa fa-calendar">
 	                    </span>
@@ -20,7 +20,11 @@
     <div id="map"></div>
   </div>
 </div>
-
+<style>
+  #map {
+    height: 600px;
+  }
+</style>
 
 <script>
 
@@ -36,10 +40,26 @@
       async: false
     });
 
+    var counts = [0, 0];
+    $.each(data, function (k, v) {
+      if (v["shrine"] == "明治神宮") {
+        counts[0]++;
+      } else if (v["shrine"] == "伏見稲荷大社") {
+        counts[1]++;
+      }
+    });
+
+    var max = Math.max.apply(null, counts);
+
+    counts[0] = Math.floor(counts[0] / (max + 1) * 5) + 1;
+    counts[1] = Math.floor(counts[1] / (max + 1) * 5) + 1;
+
     var locations = {
       jingu: {lat: 35.676694, lng: 139.699347},
       fushimi: {lat: 34.967448, lng: 135.772672}
     };
+
+    console.log($('#map')[0]);
     var map = new google.maps.Map($('#map')[0], {
       zoom: 8,
       center: locations["jingu"]
@@ -50,17 +70,19 @@
       position: locations["jingu"],
       map: map,
       title: 'Hello World!',
-      icon: getIcon(data["jingu"]["congestion"])
+      icon: getIcon(counts[0])
     });
+
     new google.maps.Marker({
       position: locations["fushimi"],
       map: map,
       title: 'Hello World!',
-      icon: getIcon(data["fushimi"]["congestion"])
+      icon: getIcon(counts[1])
     });
   }
 
   function getIcon(level) {
+    console.log(level);
     var icon = new google.maps.MarkerImage('assets/icon/' + level + '.png');
     icon.scaledSize = new google.maps.Size(64, 64);
     return icon;
