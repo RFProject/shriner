@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20151226081658) do
 
   create_table "tweets", force: :cascade do |t|
-<<<<<<< HEAD
     t.string   "text"
     t.float    "tweet_id"
     t.datetime "row_created_at"
@@ -23,10 +22,6 @@ ActiveRecord::Schema.define(version: 20151226081658) do
     t.string   "shrine"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-=======
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
->>>>>>> af8c8c4e12289941cb9357b32b653426854d8847
   end
 
 end
