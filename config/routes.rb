@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'stats/timeline', to: 'stats#timeline'
 
+  get 'stats/tweet', to: 'stats#create_data'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
