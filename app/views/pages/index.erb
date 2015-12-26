@@ -7,7 +7,19 @@
 <div id="map"></div>
 
 <script>
-  function initMap() {
+
+  var initMap = function () {
+
+    var data;
+    jQuery.ajax({
+      url: 'stats/timeline',
+      data: "year=2015",
+      success: function (fetchedData) {
+        data = fetchedData;
+      },
+      async: false
+    });
+
     var locations = {
       jingu: {lat: 35.676694, lng: 139.699347},
       fushimi: {lat: 34.967448, lng: 135.772672}
@@ -16,28 +28,28 @@
       zoom: 8,
       center: locations["jingu"]
     });
-    var icon = new google.maps.MarkerImage('assets/icon/1.png');
-    icon.scaledSize = new google.maps.Size(64, 64);
+
 
     new google.maps.Marker({
       position: locations["jingu"],
       map: map,
       title: 'Hello World!',
-      icon: icon
+      icon: getIcon(data["jingu"]["congestion"])
     });
     new google.maps.Marker({
       position: locations["fushimi"],
       map: map,
       title: 'Hello World!',
-      icon: icon
+      icon: getIcon(data["fushimi"]["congestion"])
     });
   }
-  $.get("stats/timeline"
-      , {year: '2015'}
-      , function (data) {
-        console.info(data);
-      }
-  )
+
+  function getIcon(level) {
+    var icon = new google.maps.MarkerImage('assets/icon/' + level + '.png');
+    icon.scaledSize = new google.maps.Size(64, 64);
+    return icon;
+  }
+
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2COQXpmyEeBv6w4IHG59EaQoC3BxFUDo&signed_in=true&callback=initMap"></script>
