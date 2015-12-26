@@ -47,6 +47,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'figaro'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -61,4 +62,3 @@ gem 'sprockets-rails', '2.3.3'
 
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
-gem 'figaro'
