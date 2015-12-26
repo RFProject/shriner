@@ -54,3 +54,10 @@ group :development do
   gem 'spring'
 end
 
+gem 'therubyracer' # javascript runtime。lessをコンパイルするために必要
+gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
+gem 'twitter-bootstrap-rails' # Bootstrapの本体
+gem 'sprockets-rails', '2.3.3'
+
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'

@@ -14,8 +14,14 @@
 ActiveRecord::Schema.define(version: 20151226081658) do
 
   create_table "tweets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "text"
+    t.float    "tweet_id"
+    t.datetime "row_created_at"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "shrine"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end
